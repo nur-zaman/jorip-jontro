@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
 export default function dashboard() {
-    return (
-        <>
-        {/* <div class="navbar bg-base-100">
+  return (
+    <>
+      {/* <div class="navbar bg-base-100">
     <div class="flex-none">
       <label for="my-drawer" class="btn btn-ghost drawer-button"><i class="material-icons mr-2">menu</i></label>
 
@@ -37,23 +37,21 @@ export default function dashboard() {
     </div>
   </div> */}
 
-  <Navbar></Navbar>
+      <Navbar></Navbar>
 
-
-
-  <div class="drawer">
-    <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content flex flex-wrap ">
-      {/* <!-- Page content here --> */}
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-      <Card></Card>
-    </div> 
-    <Sidebar></Sidebar>
-  </div>
-  </>
-    )
+      <div class="drawer">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-wrap justify-center ">
+          {/* <!-- Page content here --> */}
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+        </div>
+        <Sidebar></Sidebar>
+      </div>
+    </>
+  );
 }
