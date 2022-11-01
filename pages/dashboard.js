@@ -1,4 +1,5 @@
 import { Card } from "../components/Card";
+import ExternalForm from "../components/ExternalForm";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
@@ -44,11 +45,8 @@ export default function dashboard() {
         <div class="drawer-content flex flex-wrap justify-center ">
           {/* <!-- Page content here --> */}
           <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+
+          <ExternalForm></ExternalForm>
         </div>
         <Sidebar></Sidebar>
       </div>
