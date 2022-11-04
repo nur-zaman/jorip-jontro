@@ -1,5 +1,5 @@
 import { Card } from "../components/Card";
-import ExternalForm from "../components/ExternalForm";
+import ExternalForm from "../components/SurveyForm/ExternalForm";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
