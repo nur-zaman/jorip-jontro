@@ -2,8 +2,8 @@
 A site where anyone can post surveys and get responses from verified participants who will get rewards for filling up surveys.	
 
 ## Users will be able to create new surveys:
-- Add questions.
-- Select question types.
+- ✅ Add questions.
+- ✅ Select question types.
 - ✅ Use external survey forms (Ex. Google Forms).
 - Set custom rewards (coupons , vouchers etc.).
 - Select the target group according to different parameters.

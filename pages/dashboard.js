@@ -2,6 +2,13 @@ import { Card } from "../components/Card";
 import ExternalForm from "../components/SurveyForm/ExternalForm";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+// import SurveyForm from "../components/SurveyForm/SurveyForm";
+
+import dynamic from "next/dynamic";
+const SurveyForm = dynamic(
+  () => import("../components/SurveyForm/SurveyForm"),
+  { ssr: false } // <-- not including this component on server-side
+);
 
 export default function dashboard() {
   return (
@@ -45,8 +52,12 @@ export default function dashboard() {
         <div class="drawer-content flex flex-wrap justify-center ">
           {/* <!-- Page content here --> */}
           <Card></Card>
-
-          <ExternalForm></ExternalForm>
+          <div className="flex-grow">
+            {/* <ExternalForm></ExternalForm>
+            <ExternalForm></ExternalForm>
+            <ExternalForm></ExternalForm> */}
+            <SurveyForm></SurveyForm>
+          </div>
         </div>
         <Sidebar></Sidebar>
       </div>
