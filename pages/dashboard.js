@@ -2,13 +2,13 @@ import { Card } from "../components/Card";
 import ExternalForm from "../components/SurveyForm/ExternalForm";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-// import SurveyForm from "../components/SurveyForm/SurveyForm";
+import SurveyForm from "../components/SurveyForm/SurveyForm";
 
-import dynamic from "next/dynamic";
-const SurveyForm = dynamic(
-  () => import("../components/SurveyForm/SurveyForm"),
-  { ssr: false } // <-- not including this component on server-side
-);
+// import dynamic from "next/dynamic";
+// const SurveyForm = dynamic(
+//   () => import("../components/SurveyForm/SurveyForm"),
+//   { ssr: false } // <-- not including this component on server-side
+// );
 
 export default function dashboard() {
   return (
@@ -56,11 +56,22 @@ export default function dashboard() {
             {/* <ExternalForm></ExternalForm>
             <ExternalForm></ExternalForm>
             <ExternalForm></ExternalForm> */}
-            <SurveyForm></SurveyForm>
+            {/* <SurveyForm></SurveyForm> */}
           </div>
         </div>
         <Sidebar></Sidebar>
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetching data from an API
+  const res = await fetch(`http://localhost:3000/api/fetch-survey`);
+  const values = await res.json();
+  // Pass the data to the page via props
+  let data = values["data"];
+  data = data[0];
+  console.log(values);
+  return { props: { data } };
 }
