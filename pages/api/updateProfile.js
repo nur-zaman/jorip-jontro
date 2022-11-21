@@ -4,14 +4,15 @@ import User from "../../model/user-schema";
 connect();
 
 export default async function handler(req, res) {
-  //   try {
-  //     const user = await User.create(req.body);
-  //     res.redirect("/");
-  //     if (!user) {
-  //       return res.json({ " code": "User not created" });
-  //     }
-  //   } catch (error) {
-  //     res.status(400).json({ status: "Not able to create a new user." });
-  //   }
-  console.log("WORKS");
+  const { email } = req.body;
+  console.log(email);
+  try {
+    const user = await User.update(
+      { email: "user" },
+      { $set: req.body }
+    ); /* find all the data in our database */
+    res.status(200).json({ success: true, data: user });
+  } catch (error) {
+    res.status(400).json({ success: false });
+  }
 }
