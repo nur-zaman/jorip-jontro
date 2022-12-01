@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  coins: {
+    type: Number,
+    required: false,
+  },
 });
 
 module.exports = mongoose.models.User || mongoose.model("User", userSchema);

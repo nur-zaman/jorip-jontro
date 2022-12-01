@@ -7,7 +7,7 @@ import { Survey } from "survey-react-ui";
 
 import { GetServerSidePropsContext } from "next";
 
-// StylesManager.applyTheme("defaultV2");
+StylesManager.applyTheme("defaultV2");
 
 const surveyJson = {
   logoPosition: "right",
@@ -60,15 +60,17 @@ function SurveyForm(props) {
   const survey = new Model(props.data);
   survey.focusFirstQuestionAutomatic = false;
 
-  const alertResults = useCallback((sender) => {
-    const results = JSON.stringify(sender.data);
-    alert(results);
-  }, []);
+  // const alertResults = useCallback((sender) => {
+  //   const results = JSON.stringify(sender.data);
+  //   alert(results);
+  // }, []);
 
-  survey.onComplete.add(console.log("done"));
+  survey.onComplete.add(function (sender) {
+    console.log(sender.data);
+  });
+  // survey.getSurveyData
 
   return <Survey model={survey} />;
-  return;
 }
 
 export default SurveyForm;

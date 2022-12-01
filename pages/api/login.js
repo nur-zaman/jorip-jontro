@@ -9,6 +9,8 @@ export default async function handler(req, res) {
   if (!user) {
     return res.json({ status: "Not able to find the user" });
   } else {
-    res.redirect("/dashboard");
+    // window.localStorage.setItem("userid", user.body["id"]);
+    // res.status(200).json({ success: true, data: user["id"] });
+    res.redirect("/dashboard?" + user["id"]);
   }
 }

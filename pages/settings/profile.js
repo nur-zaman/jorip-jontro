@@ -1,10 +1,27 @@
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import { Card } from "../../components/Card";
-
+import Avatar from "react-nice-avatar";
 export default function profile({ data }) {
+  const config = {
+    sex: "man",
+    faceColor: "#F9C9B6",
+    earSize: "small",
+    eyeStyle: "smile",
+    noseStyle: "long",
+    mouthStyle: "smile",
+    shirtStyle: "short",
+    glassesStyle: "none",
+    hairColor: "#000",
+    hairStyle: "thick",
+    hatStyle: "none",
+    hatColor: "#F48150",
+    eyeBrowStyle: "up",
+    shirtColor: "#9287FF",
+    bgColor: "#F4D150",
+  };
+
   return (
-    <>
+    <div>
       <Navbar></Navbar>
 
       <div className="drawer">
@@ -12,7 +29,11 @@ export default function profile({ data }) {
         <div className="drawer-content flex flex-wrap justify-center">
           {/* <!-- Page content here --> */}
           {/* <Card title='Edit Profile'></Card> */}
+
           <div className=" h-fit w-1/2  rounded-sm bg-base-200 p-4 ">
+            <div className="flex  justify-center">
+              <Avatar className=" h-28 w-28 content-center" {...config} />
+            </div>
             <form action="/api/updateProfile" method="post">
               <div className="form-control">
                 <label className="label">
@@ -22,8 +43,10 @@ export default function profile({ data }) {
                   <span className=" w-40 text-lg ">Email</span>
                   <input
                     type="text"
+                    name="email"
                     placeholder="info@site.com"
                     className="input-bordered input flex-grow"
+                    readOnly
                     value={data.email}
                   />
                 </label>
@@ -36,7 +59,8 @@ export default function profile({ data }) {
                   <input
                     type="password"
                     className="input-bordered input flex-grow"
-                    value={data.password}
+                    name="password"
+                    defaultValue={data.password}
                   />
                 </label>
 
@@ -48,7 +72,8 @@ export default function profile({ data }) {
                   <input
                     type="text"
                     className="input-bordered input flex-grow"
-                    value={data.age}
+                    name="age"
+                    defaultValue={data.age}
                   />
                 </label>
 
@@ -56,11 +81,12 @@ export default function profile({ data }) {
                   {/* <span className="label-text">Location</span> */}
                 </label>
                 <label className="input-group">
-                  <span className=" w-40 text-lg ">Location</span>
+                  <span className=" w-40 text-lg ">Address</span>
                   <input
                     type="text"
                     className="input-bordered input flex-grow"
-                    value={data.location}
+                    name="address"
+                    defaultValue={data.address}
                   />
                 </label>
 
@@ -75,7 +101,7 @@ export default function profile({ data }) {
         </div>
         <Sidebar></Sidebar>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -87,7 +113,7 @@ export async function getServerSideProps() {
   };
 
   const bodyContent = JSON.stringify({
-    email: "good",
+    email: "abc@gmail.com",
   });
 
   const response = await fetch("http://localhost:3000/api/getProfile", {

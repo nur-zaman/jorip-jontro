@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   console.log(email);
   try {
     const user = await User.update(
-      { email: "user" },
+      { email: email },
       { $set: req.body }
     ); /* find all the data in our database */
     res.status(200).json({ success: true, data: user });

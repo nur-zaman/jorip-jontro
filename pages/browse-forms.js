@@ -11,6 +11,16 @@ const SurveyForm = dynamic(
 );
 
 export default function browseForms({ data }) {
+  const forms = [];
+
+  for (const [i, form] of data.entries()) {
+    forms.push(
+      <div className=" mx-36 mb-4 ">
+        <SurveyForm data={form["data"]} />
+      </div>
+    );
+  }
+
   return (
     <>
       <Navbar></Navbar>
@@ -22,7 +32,8 @@ export default function browseForms({ data }) {
           <Card></Card>
           <div className="flex-grow">
             {/* {console.log(data)} */}
-            <SurveyForm data={data} />
+            {/* <SurveyForm data={data} /> */}
+            {forms}
             <ExternalForm></ExternalForm>
             <ExternalForm></ExternalForm>
             <ExternalForm></ExternalForm>
@@ -40,7 +51,7 @@ export async function getServerSideProps() {
   const values = await res.json();
   // Pass the data to the page via props
   let data = values["data"];
-  data = data[0]["data"];
+  // data = data[0]["data"];
   // console.log(data);
   return { props: { data } };
 }

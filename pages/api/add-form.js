@@ -1,5 +1,6 @@
 import connect from "../../libs/mongodb";
 import formData from "../../model/formData-schema";
+import User from "../../model/user-schema";
 
 connect();
 
