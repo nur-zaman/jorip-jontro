@@ -11,6 +11,6 @@ export default async function handler(req, res) {
   } else {
     // window.localStorage.setItem("userid", user.body["id"]);
     // res.status(200).json({ success: true, data: user["id"] });
-    res.redirect("/dashboard?" + user["id"]);
+    res.redirect("/" + user["id"] + "/dashboard");
   }
 }

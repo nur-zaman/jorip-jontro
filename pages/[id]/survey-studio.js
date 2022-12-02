@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/Sidebar";
 import dynamic from "next/dynamic";
 
 const SurveyCreatorWidget = dynamic(
-  () => import("../components/SurveyForm/SurveyCreatorWidget"),
+  () => import("../../components/SurveyForm/SurveyCreatorWidget"),
   { ssr: false } // <-- not including this component on server-side
 );
 

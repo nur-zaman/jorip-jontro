@@ -1,6 +1,6 @@
-import Navbar from "../../components/Navbar";
-import Sidebar from "../../components/Sidebar";
 import Avatar from "react-nice-avatar";
+import Navbar from "../../../components/Navbar";
+import Sidebar from "../../../components/Sidebar";
 export default function profile({ data }) {
   const config = {
     sex: "man",
@@ -34,7 +34,7 @@ export default function profile({ data }) {
             <div className="flex  justify-center">
               <Avatar className=" h-28 w-28 content-center" {...config} />
             </div>
-            <form action="/api/updateProfile" method="post">
+            <form action="/api/updateProfile" method="post" target="_blank">
               <div className="form-control">
                 <label className="label">
                   {/* <span className="label-text">Your Email</span> */}
@@ -105,7 +105,10 @@ export default function profile({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+  const userid = ctx.params.id;
+  console.log(userid);
+  // let data = userid;
   const headersList = {
     Accept: "*/*",
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -113,7 +116,7 @@ export async function getServerSideProps() {
   };
 
   const bodyContent = JSON.stringify({
-    email: "abc@gmail.com",
+    _id: userid,
   });
 
   const response = await fetch("http://localhost:3000/api/getProfile", {

@@ -4,15 +4,14 @@ import User from "../../model/user-schema";
 connect();
 
 export default async function handler(req, res) {
-  const { email } = req.body;
-  console.log(email);
+  const { _id } = req.body;
+  console.log(_id);
   try {
     const user = await User.update(
-      { email: email },
+      { _id: _id },
       { $set: req.body }
     ); /* find all the data in our database */
     res.status(200).json({ success: true, data: user });
-    window.top.close();
   } catch (error) {
     res.status(400).json({ success: false });
   }

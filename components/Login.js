@@ -1,15 +1,24 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 export default function Login() {
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+      <div className="hero-content flex-col lg:flex-row">
+        <div className="avatar">
+          <div className="w-32 rounded  ">
+            <Image
+              src="/vercel.svg"
+              alt="LOGO"
+              layout="fill"
+              className=" text-slate-200"
+            />
+          </div>
+        </div>
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Really POG Description about the project that Ill remove soon
-          </p>
+          <h1 className="text-5xl font-bold">Welcome to Jorip Jontro!</h1>
+          <p className="py-6">Login or Sign Now!</p>
         </div>
         <div className="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl">
           <form action="/api/login" method="post">

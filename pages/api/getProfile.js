@@ -4,11 +4,11 @@ import User from "../../model/user-schema";
 connect();
 
 export default async function handler(req, res) {
-  const { email } = req.body;
-  console.log(email);
+  const { _id } = req.body;
+  console.log(_id);
   try {
     const user = await User.findOne({
-      email: email,
+      _id: _id,
     }); /* find all the data in our database */
     res.status(200).json({ success: true, data: user });
   } catch (error) {

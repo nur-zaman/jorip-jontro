@@ -21,10 +21,10 @@ function Navbar() {
   };
   return (
     <>
-      <div class="navbar bg-base-100">
-        <div class="flex-none">
-          <label for="my-drawer" class="btn-ghost drawer-button btn">
-            <i class="material-icons mr-2">
+      <div className="navbar bg-base-100">
+        <div className="flex-none">
+          <label htmlFor="my-drawer" className="btn-ghost drawer-button btn">
+            <i className="material-icons mr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -42,11 +42,11 @@ function Navbar() {
             </i>
           </label>
         </div>
-        <div class="flex-1">
-          <a class="btn-ghost btn text-xl normal-case">Jorip Jontro</a>
+        <div className="flex-1">
+          <a className="btn-ghost btn text-xl normal-case">Jorip Jontro</a>
         </div>
 
-        <div class="flex-none gap-2">
+        <div className="flex-none gap-2">
           <button className="btn-ghost btn-circle btn">
             <div className="indicator">
               <svg
@@ -66,20 +66,20 @@ function Navbar() {
               <span className="badge-primary badge badge-xs indicator-item"></span>
             </div>
           </button>
-          <div class="dropdown-end dropdown">
-            <label tabindex="0" class="btn-ghost btn-circle avatar btn">
-              <div class="w-10 rounded-full">
+          <div className="dropdown-end dropdown">
+            <label tabIndex="0" className="btn-ghost btn-circle avatar btn">
+              <div className="w-10 rounded-full">
                 <Avatar className="h-10 w-10" {...config} />
               </div>
             </label>
             <ul
-              tabindex="0"
-              class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+              tabIndex="0"
+              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
             >
               <li>
-                <a class="justify-between">
+                <a className="justify-between">
                   Profile
-                  <span class="badge">New</span>
+                  <span className="badge">New</span>
                 </a>
               </li>
               <li>

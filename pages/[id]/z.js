@@ -1,22 +1,36 @@
-import { Card } from "../components/Card";
-import ExternalForm from "../components/SurveyForm/ExternalForm";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import { Card } from "../../components/Card";
+import ExternalForm from "../../components/SurveyForm/ExternalForm";
+import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/Sidebar";
+import { FormTitle } from "../../components/FormTitle";
 // import SurveyForm from "../components/SurveyForm/SurveyForm";
-
 import dynamic from "next/dynamic";
+
 const SurveyForm = dynamic(
-  () => import("../components/SurveyForm/SurveyForm"),
+  () => import("../../components/SurveyForm/SurveyForm"),
   { ssr: false } // <-- not including this component on server-side
 );
 
 export default function browseForms({ data }) {
   const forms = [];
 
+  // for (const [i, form] of data.entries()) {
+  //   forms.push(
+  //     <div className=" mx-36 mb-4 ">
+  //       <SurveyForm data={form["fdata"]} />
+  //     </div>
+  //   );
+  // }
+
   for (const [i, form] of data.entries()) {
     forms.push(
-      <div className=" mx-36 mb-4 ">
-        <SurveyForm data={form["data"]} />
+      // <div className=" mx-36 mb-4 ">
+      <div>
+        <FormTitle
+          title={form["fdata"].title}
+          description={form["fdata"].description}
+          id={form._id}
+        />
       </div>
     );
   }
@@ -29,8 +43,10 @@ export default function browseForms({ data }) {
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-wrap justify-center ">
           {/* <!-- Page content here --> */}
-          <Card></Card>
+
           <div className="flex-grow">
+            {/* <Card></Card> */}
+            <FormTitle></FormTitle>
             {/* {console.log(data)} */}
             {/* <SurveyForm data={data} /> */}
             {forms}
@@ -52,6 +68,6 @@ export async function getServerSideProps() {
   // Pass the data to the page via props
   let data = values["data"];
   // data = data[0]["data"];
-  // console.log(data);
+  console.log(data);
   return { props: { data } };
 }
