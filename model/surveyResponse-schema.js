@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 
-const formSchema = new mongoose.Schema({
-  fdata: {
+const responseSchema = new mongoose.Schema({
+  response: {
     type: Object,
     required: true,
     unique: false,
   },
-  user: {
+  formID: {
     type: String,
     required: true,
     unique: false,
   },
-  points: {
+  userID: {
     type: String,
     required: true,
     unique: false,
@@ -19,4 +19,5 @@ const formSchema = new mongoose.Schema({
 });
 
 module.exports =
-  mongoose.models.formdatas || mongoose.model("formdatas", formSchema);
+  mongoose.models.response_data ||
+  mongoose.model("response_data", responseSchema);

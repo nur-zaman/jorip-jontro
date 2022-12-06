@@ -1,10 +1,8 @@
 // import { Card } from "../../components/Card";
 import { useRouter } from "next/router";
-import ExternalForm from "../../../components/SurveyForm/ExternalForm";
 import Navbar from "../../../components/Navbar";
 import Sidebar from "../../../components/Sidebar";
-import { FormTitle } from "../../../components/FormTitle";
-// import SurveyForm from "../components/SurveyForm/SurveyForm";
+
 import dynamic from "next/dynamic";
 
 const SurveyForm = dynamic(

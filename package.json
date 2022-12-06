@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "daisyui": "^2.33.0",
+    "js-file-download": "^0.4.12",
     "mongodb": "^4.11.0",
     "mongoose": "^6.7.1",
     "next": "12.3.1",

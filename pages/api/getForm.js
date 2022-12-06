@@ -5,7 +5,6 @@ connect();
 
 export default async function handler(req, res) {
   const { _id } = req.body;
-  console.log(req.body);
   try {
     const form = await formdatas.findOne({
       _id: _id,

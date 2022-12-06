@@ -17,12 +17,26 @@ export default function Dashboard() {
     <>
       <Navbar></Navbar>
 
-      <div class="drawer">
+      <div class="drawer h-min">
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           {/* <!-- Page content here --> */}
 
-          <div className=" flex flex-row flex-wrap">
+          <div className=" flex flex-row flex-wrap justify-around">
+            <Card
+              title="Survey Studio"
+              desc="Create a Form From the Survey Studio"
+              link={`${"/" + router.query.id + "/survey-studio"}`}
+              linktxt="GO"
+            ></Card>
+
+            <Card
+              title="Browse Forms"
+              desc="Browse through the survey forms"
+              link={`${"/" + router.query.id + "/browse-forms"}`}
+              linktxt="GO"
+            ></Card>
+
             <Card
               title="Your Points"
               desc="Check your points"
@@ -33,19 +47,7 @@ export default function Dashboard() {
             <Card
               title="View Profile"
               desc="Check your Profile"
-              link={`${router.asPath + "/settings/profile"}`}
-              linktxt="GO"
-            ></Card>
-            <Card
-              title="View Profile"
-              desc="Check your Profile"
-              link={`${router.asPath + "/settings/profile"}`}
-              linktxt="GO"
-            ></Card>
-            <Card
-              title="View Profile"
-              desc="Check your Profile"
-              link={`${router.asPath + "/settings/profile"}`}
+              link={`${"/" + router.query.id + "/settings/profile"}`}
               linktxt="GO"
             ></Card>
           </div>

@@ -26,27 +26,27 @@ async function updatePoint(userid, points, value, add) {
   console.log(data);
 }
 
-export default function BuyPoints(props) {
+export default function Reedeem(props) {
   const router = useRouter();
   const userid = router.query.id;
   const [points, setPoints] = useState(props.points);
   function addPoints(points, value) {
-    let newPoint = points + value;
+    let newPoint = points - value;
     setPoints(newPoint);
 
-    updatePoint(userid, points, value, true);
+    updatePoint(userid, points, value, false);
   }
 
   return (
     <div>
-      <label htmlFor="buy-modal" className="btn m-2">
-        Buy Points
+      <label htmlFor="redeem-modal" className="btn m-2">
+        Redeem Points
       </label>
       {/* Put this part before </body> tag */}
-      <input type="checkbox" id="buy-modal" className="modal-toggle " />
-      <label htmlFor="buy-modal" className="modal cursor-pointer">
+      <input type="checkbox" id="redeem-modal" className="modal-toggle " />
+      <label htmlFor="redeem-modal" className="modal cursor-pointer">
         <label className="modal-box relative" htmlFor="">
-          <h3 className="text-lg font-bold">Select Amount To Buy:</h3>
+          <h3 className="text-lg font-bold">Select Amount To Redeem:</h3>
           <div className="flex justify-evenly py-4">
             <button className="btn" onClick={() => addPoints(points, 100)}>
               100

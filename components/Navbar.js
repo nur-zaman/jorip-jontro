@@ -1,5 +1,6 @@
 import Avatar from "react-nice-avatar";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Navbar() {
   const config = {
@@ -19,9 +20,11 @@ function Navbar() {
     shirtColor: "#9287FF",
     bgColor: "#F4D150",
   };
+  const router = useRouter();
+
   return (
-    <>
-      <div className="navbar bg-base-100">
+    <div className="">
+      <div className="navbar  bg-base-100">
         <div className="flex-none">
           <label htmlFor="my-drawer" className="btn-ghost drawer-button btn">
             <i className="material-icons mr-2">
@@ -43,7 +46,11 @@ function Navbar() {
           </label>
         </div>
         <div className="flex-1">
-          <a className="btn-ghost btn text-xl normal-case">Jorip Jontro</a>
+          <div className="btn-ghost btn text-xl normal-case">
+            <Link href={`${"/" + router.query.id + "/dashboard"}`}>
+              Jorip Jontro
+            </Link>
+          </div>
         </div>
 
         <div className="flex-none gap-2">
@@ -93,7 +100,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

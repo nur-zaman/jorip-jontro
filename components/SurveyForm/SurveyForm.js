@@ -6,57 +6,42 @@ import { StylesManager, Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 
 import { GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
 
 StylesManager.applyTheme("defaultV2");
 
-const surveyJson = {
-  logoPosition: "right",
-  pages: [
-    {
-      name: "Name",
-      elements: [
-        {
-          type: "text",
-          name: "FirstName",
-          title: "Helloooo name?13",
-        },
-        {
-          type: "text",
-          name: "LastName",
-          title: "Enter your last name:",
-        },
-        {
-          type: "text",
-          name: "question1",
-          title: "NO B?",
-        },
-      ],
-    },
-  ],
-};
+async function saveFormData(response_data, formID, userID) {
+  let headersList = {
+    Accept: "*/*",
+    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+    "Content-Type": "application/json",
+  };
 
-//   const callfetchSurvey = async () => {
-// 	try {
-// 		const res = await fetch(`http://localhost:3000/api/fetch-survey`);
-// 		let data = await res.json();
-//        data = data['data']
-//        data = data[0]
-// 		console.log(data);
-//         return data
-// 	} catch (err) {
-// 		console.log(err);
-// 	}
+  let bodyContent = JSON.stringify({
+    response: response_data,
+    formID: formID,
+    userID: userID,
+  });
 
-// };
+  let response = await fetch("http://localhost:3000/api/save-form-data", {
+    method: "POST",
+    body: bodyContent,
+    headers: headersList,
+  });
 
-// console.log(callfetchSurvey)
+  let data = await response.text();
+  console.log(data);
+}
 
 function SurveyForm(props) {
-  // const testCall = callfetchSurvey()
-  // console.log(testCall['data'])
-  console.log(props);
+  const router = useRouter();
 
-  // const survey = new Model(surveyJson);
+  // console.log(router);
+
+  // console.log(props);
+  const userID = router.query.id;
+  const formID = router.query.formid;
+
   const survey = new Model(props.data);
   survey.focusFirstQuestionAutomatic = false;
 
@@ -67,6 +52,7 @@ function SurveyForm(props) {
 
   survey.onComplete.add(function (sender) {
     console.log(sender.data);
+    saveFormData(sender.data, formID, userID);
   });
   // survey.getSurveyData
 

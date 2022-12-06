@@ -5,7 +5,7 @@ connect();
 
 export default async function handler(req, res) {
   const { email } = req.body;
-  console.log(email);
+
   try {
     const user = await User.update(
       { email: email },

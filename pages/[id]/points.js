@@ -1,25 +1,29 @@
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import BuyPoints from "../../components/BuyPoints";
+import { useRouter } from "next/router";
+import Redeem from "../../components/Redeem";
+
 export default function points({ data }) {
   return (
     <>
       <Navbar />
 
-      <div className="drawer">
+      <div className="drawer h-min">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-wrap justify-center">
           {/* <!-- Page content here --> */}
           <div className=" h-fit justify-center  rounded-sm bg-base-200 p-4 ">
             <div className="flex flex-col items-center  ">
               <span>Your total points:</span>
-              <span>100</span>
+              <span>{data.coins}</span>
             </div>
 
             <div className="m-4 flex flex-col items-center ">
-              <BuyPoints points={data.points}></BuyPoints>
+              <BuyPoints points={data.coins}></BuyPoints>
+              <Redeem points={data.coins}></Redeem>
 
-              <label htmlFor="redeem-modal" className="btn">
+              {/* <label htmlFor="redeem-modal" className="btn">
                 open modal
               </label>
 
@@ -35,7 +39,7 @@ export default function points({ data }) {
                   </h3>
                   <div className="py-4">aaa</div>
                 </label>
-              </label>
+              </label> */}
             </div>
           </div>
         </div>
@@ -45,7 +49,10 @@ export default function points({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+  const userid = ctx.params.id;
+  console.log(userid);
+  // let data = userid;
   const headersList = {
     Accept: "*/*",
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
@@ -53,18 +60,17 @@ export async function getServerSideProps() {
   };
 
   const bodyContent = JSON.stringify({
-    email: "good",
+    _id: userid,
   });
 
-  // const response = await fetch("http://localhost:3000/api/add-points", {
-  //   method: "POST",
-  //   body: bodyContent,
-  //   headers: headersList,
-  // });
+  const response = await fetch("http://localhost:3000/api/getProfile", {
+    method: "POST",
+    body: bodyContent,
+    headers: headersList,
+  });
 
-  // const result = await response.json();
-  // const data = result.data;
-  const data = { points: 100 };
+  const result = await response.json();
+  const data = result.data;
 
   return { props: { data } };
 }

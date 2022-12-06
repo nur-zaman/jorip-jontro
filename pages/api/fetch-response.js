@@ -1,16 +1,15 @@
 import connect from "../../libs/mongodb";
-import User from "../../model/user-schema";
+import response_data from "../../model/surveyResponse-schema";
 
 connect();
 
 export default async function handler(req, res) {
-  const { _id } = req.body;
-
+  const { formID } = req.body;
   try {
-    const user = await User.findOne({
-      _id: _id,
+    const responses = await response_data.find({
+      formID: formID,
     }); /* find all the data in our database */
-    res.status(200).json({ success: true, data: user });
+    res.status(200).json(responses);
   } catch (error) {
     res.status(400).json({ success: false });
   }

@@ -1,4 +1,8 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 function Sidebar() {
+  const router = useRouter();
   return (
     <>
       <div className="drawer-side">
@@ -6,26 +10,33 @@ function Sidebar() {
         <ul className="menu w-80 overflow-y-auto bg-base-100 p-4 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <a href="dashboard.html">
-              {" "}
-              <i className="material-icons">home</i> Início
-            </a>
+            <Link href={`${"/" + router.query.id + "/dashboard"}`}>
+              <div>
+                <i className="material-icons">Home</i>
+              </div>
+            </Link>
           </li>
           <li>
-            <a href="contatos.html">
-              <i className="material-icons">group</i> Listar Contatos
-            </a>
+            <Link href={`${"/" + router.query.id + "/my-forms"}`}>
+              <div>
+                <i className="material-icons">My Forms</i>
+              </div>
+            </Link>
           </li>
           <li>
-            <a href="novocontato.html">
-              <i className="material-icons">add</i>Novo Contato
-            </a>
+            <Link href={`${"/" + router.query.id + "/browse-forms"}`}>
+              <div>
+                <i className="material-icons">Browse Forms</i>
+              </div>
+            </Link>
           </li>
           <div className="divider"></div>
           <li>
-            <a href="index.html" className="text-error">
-              <i className="material-icons"></i> Sair
-            </a>
+            <Link href={"/"}>
+              <div className="text-error">
+                <i className="material-icons">Sign Out</i>
+              </div>
+            </Link>
           </li>
         </ul>
       </div>

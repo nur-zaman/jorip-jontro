@@ -1,12 +1,12 @@
-// import { Card } from "../../components/Card";
-import ExternalForm from "../../../components/SurveyForm/ExternalForm";
+import { useRouter } from "next/router";
+
 import Navbar from "../../../components/Navbar";
 import Sidebar from "../../../components/Sidebar";
 import { FormTitle } from "../../../components/FormTitle";
-// import SurveyForm from "../components/SurveyForm/SurveyForm";
-import dynamic from "next/dynamic";
 
 export default function browseForms({ data }) {
+  const router = useRouter();
+
   const forms = [];
 
   // for (const [i, form] of data.entries()) {
@@ -24,35 +24,29 @@ export default function browseForms({ data }) {
         <FormTitle
           title={form["fdata"].title}
           description={form["fdata"].description}
-          id={form._id}
+          txt="Fill Up"
+          url={`${router.asPath + "/" + form._id}`}
+          download={""}
+          hidden="hidden"
         />
       </div>
     );
   }
 
   return (
-    <>
+    <div className="">
       <Navbar></Navbar>
 
-      <div class="drawer">
+      <div class="drawer h-min ">
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-wrap justify-center ">
+        <div class="drawer-content flex flex-wrap justify-center scrollbar-thin scrollbar-track-slate-900 scrollbar-thumb-gray-900">
           {/* <!-- Page content here --> */}
 
-          <div className="flex-grow">
-            {/* <Card></Card> */}
-            <FormTitle></FormTitle>
-            {/* {console.log(data)} */}
-            {/* <SurveyForm data={data} /> */}
-            {forms}
-            <ExternalForm></ExternalForm>
-            <ExternalForm></ExternalForm>
-            <ExternalForm></ExternalForm>
-          </div>
+          <div className="flex-grow pr-9">{forms}</div>
         </div>
         <Sidebar></Sidebar>
       </div>
-    </>
+    </div>
   );
 }
 
