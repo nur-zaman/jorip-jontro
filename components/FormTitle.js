@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import fileDownload from "js-file-download";
 import Image from "next/image";
+import DeleteSurveyButton from "./DeleteSurveyButton";
 
 async function handleDownload(formID, filename) {
   let headersList = {
@@ -35,17 +36,8 @@ export const FormTitle = (props) => {
         <h2 className="card-title">{props.title || "No Survey Title"}</h2>
         <p>{props.description || "No Survey Description"}</p>
         <div className="card-actions  items-center justify-end px-6">
-          <button
-            className={`${"btn " + props.hidden}`}
-            onClick={() => {
-              handleDownload(props.id, props.title + "-" + props.id + ".json");
-            }}
-          >
-            {props.download}
-          </button>
           <div className="text-3xl text-primary">
             {props.points || 0}
-            {"  "}
             <span>
               <Image
                 src="/res/coin.gif"
@@ -55,9 +47,23 @@ export const FormTitle = (props) => {
               ></Image>
             </span>
           </div>
-          <button className="btn">
-            <Link href={props.url}>{props.txt}</Link>
+          <button
+            className={`${"btn " + props.hidden}`}
+            onClick={() => {
+              handleDownload(props.id, props.title + "-" + props.id + ".json");
+            }}
+          >
+            {props.download}
           </button>
+
+          <Link href={props.url}>
+            <button className="btn">{props.txt}</button>
+          </Link>
+
+          <DeleteSurveyButton
+            id={props.id}
+            visiblity={props.hidden}
+          ></DeleteSurveyButton>
         </div>
       </div>
     </div>
