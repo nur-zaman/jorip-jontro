@@ -50,6 +50,13 @@ export default function Dashboard() {
               link={`${"/" + router.query.id + "/settings/profile"}`}
               linktxt="GO"
             ></Card>
+
+            <Card
+              title="External Forms"
+              desc="Fill up external forms"
+              link={`${"/" + router.query.id + "/browse-forms/external"}`}
+              linktxt="GO"
+            ></Card>
           </div>
         </div>
         <Sidebar></Sidebar>

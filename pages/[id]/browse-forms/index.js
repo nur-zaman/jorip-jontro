@@ -4,7 +4,7 @@ import Navbar from "../../../components/Navbar";
 import Sidebar from "../../../components/Sidebar";
 import { FormTitle } from "../../../components/FormTitle";
 
-export default function browseForms({ data }) {
+export default function BrowseForms({ data }) {
   const router = useRouter();
 
   const forms = [];
@@ -28,6 +28,7 @@ export default function browseForms({ data }) {
           url={`${router.asPath + "/" + form._id}`}
           download={""}
           hidden="hidden"
+          points={form.points}
         />
       </div>
     );

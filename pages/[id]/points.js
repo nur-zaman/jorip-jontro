@@ -3,6 +3,7 @@ import Sidebar from "../../components/Sidebar";
 import BuyPoints from "../../components/BuyPoints";
 import { useRouter } from "next/router";
 import Redeem from "../../components/Redeem";
+import Image from "next/image";
 
 export default function points({ data }) {
   return (
@@ -16,30 +17,22 @@ export default function points({ data }) {
           <div className=" h-fit justify-center  rounded-sm bg-base-200 p-4 ">
             <div className="flex flex-col items-center  ">
               <span>Your total points:</span>
-              <span>{data.coins}</span>
+              <span>
+                <Image
+                  src="/res/coin.gif"
+                  alt="Coins"
+                  width={20}
+                  height={20}
+                ></Image>
+              </span>
+              <span className=" rounded text-4xl transition-all hover:bg-primary-focus hover:text-5xl ">
+                {data.coins}
+              </span>
             </div>
 
             <div className="m-4 flex flex-col items-center ">
               <BuyPoints points={data.coins}></BuyPoints>
               <Redeem points={data.coins}></Redeem>
-
-              {/* <label htmlFor="redeem-modal" className="btn">
-                open modal
-              </label>
-
-              <input
-                type="checkbox"
-                id="redeem-modal"
-                className="modal-toggle"
-              />
-              <label htmlFor="redeem-modal" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
-                  <h3 className="text-lg font-bold">
-                    Congratulations random Internet user!
-                  </h3>
-                  <div className="py-4">aaa</div>
-                </label>
-              </label> */}
             </div>
           </div>
         </div>

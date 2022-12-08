@@ -10,12 +10,25 @@ import { useRouter } from "next/router";
 
 StylesManager.applyTheme("defaultV2");
 
-async function saveFormData(response_data, formID, userID) {
+async function saveFormData(response_data, formID, userID, value) {
   let headersList = {
     Accept: "*/*",
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
     "Content-Type": "application/json",
   };
+
+  let usertag = JSON.stringify({
+    _id: userID,
+  });
+
+  const userData = await fetch("http://localhost:3000/api/getProfile", {
+    method: "POST",
+    body: usertag,
+    headers: headersList,
+  });
+
+  let userdataJSON = await userData.json();
+  let points = userdataJSON.data.coins;
 
   let bodyContent = JSON.stringify({
     response: response_data,
@@ -29,20 +42,51 @@ async function saveFormData(response_data, formID, userID) {
     headers: headersList,
   });
 
+  let addForm = await response.text();
+  console.log(userID, points, value, true);
+  updatePoint(userID, points, value, true);
+
+  // console.log(addForm);
+}
+
+async function updatePoint(userid, points, value, add) {
+  let headersList = {
+    Accept: "*/*",
+    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+    "Content-Type": "application/json",
+  };
+
+  let update = JSON.stringify({
+    _id: userid,
+    points: points,
+    value: value,
+    add: add,
+  });
+
+  let getCoin = JSON.stringify({
+    _id: userid,
+  });
+
+  let response = await fetch("http://localhost:3000/api/updateCoins", {
+    method: "POST",
+    body: update,
+    headers: headersList,
+  });
+
   let data = await response.text();
-  console.log(data);
+  // console.log(data);
 }
 
 function SurveyForm(props) {
   const router = useRouter();
 
   // console.log(router);
-
-  // console.log(props);
+  // console.log("SURVEY FORM");
+  // console.log(props.data.points);
   const userID = router.query.id;
   const formID = router.query.formid;
 
-  const survey = new Model(props.data);
+  const survey = new Model(props.data.fdata);
   survey.focusFirstQuestionAutomatic = false;
 
   // const alertResults = useCallback((sender) => {
@@ -51,8 +95,8 @@ function SurveyForm(props) {
   // }, []);
 
   survey.onComplete.add(function (sender) {
-    console.log(sender.data);
-    saveFormData(sender.data, formID, userID);
+    // console.log(sender.data);
+    saveFormData(sender.data, formID, userID, Number(props.data.points));
   });
   // survey.getSurveyData
 

@@ -22,6 +22,7 @@ export default function Myforms({ data }) {
           url={`${router.asPath + "/" + form._id}`}
           download={"Download Response JSON"}
           hidden=""
+          points={form.points}
         />
       </div>
     );

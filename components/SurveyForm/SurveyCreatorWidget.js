@@ -16,7 +16,9 @@ const creatorOptions = {
   forceCompact: false,
 };
 
-export default function SurveyCreatorWidget() {
+export default function SurveyCreatorWidget(props) {
+  let pt = props.points;
+  console.log("points " + pt);
   const router = useRouter();
   const userID = router.query.id;
   const creator = new SurveyCreator(creatorOptions);
@@ -30,7 +32,8 @@ export default function SurveyCreatorWidget() {
       creator.JSON,
       saveNo,
       callback,
-      userID
+      userID,
+      pt
     );
   };
   return (
@@ -52,8 +55,31 @@ export default function SurveyCreatorWidget() {
     </>
   );
 }
+async function updatePoint(userid, points, value, add) {
+  let headersList = {
+    Accept: "*/*",
+    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+    "Content-Type": "application/json",
+  };
 
-function saveSurveyJson(url, json, saveNo, callback, userID) {
+  let bodyContent = JSON.stringify({
+    _id: userid,
+    points: points,
+    value: value,
+    add: add,
+  });
+
+  let response = await fetch("http://localhost:3000/api/updateCoins", {
+    method: "POST",
+    body: bodyContent,
+    headers: headersList,
+  });
+
+  let data = await response.text();
+  console.log(data);
+}
+
+function saveSurveyJson(url, json, saveNo, callback, userID, pt) {
   const request = new XMLHttpRequest();
   request.open("POST", url);
   request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -70,6 +96,7 @@ function saveSurveyJson(url, json, saveNo, callback, userID) {
     points: coins,
   };
   // console.log(json);
+  updatePoint(userID, pt, coins, false);
 
   request.send(JSON.stringify(json));
 }

@@ -28,7 +28,7 @@ export default function DetailedPage({ data }) {
           {/* <!-- Page content here --> */}
 
           <div className="flex-grow">
-            <SurveyForm data={data.fdata} />
+            <SurveyForm data={data} />
           </div>
           <div className="btn" onClick={() => router.back()}>
             🔙GO BACK
