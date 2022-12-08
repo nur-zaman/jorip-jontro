@@ -39,7 +39,7 @@ export default function BuyPoints(props) {
 
   return (
     <div>
-      <label htmlFor="buy-modal" className="btn m-2">
+      <label htmlFor="buy-modal" className="btn m-2 hover:bg-primary-focus">
         Buy Points
       </label>
       {/* Put this part before </body> tag */}
@@ -48,13 +48,22 @@ export default function BuyPoints(props) {
         <label className="modal-box relative" htmlFor="">
           <h3 className="text-lg font-bold">Select Amount To Buy:</h3>
           <div className="flex justify-evenly py-4">
-            <button className="btn" onClick={() => addPoints(points, 100)}>
+            <button
+              className="btn hover:bg-primary-focus"
+              onClick={() => addPoints(points, 100)}
+            >
               100
             </button>
-            <button className="btn" onClick={() => addPoints(points, 500)}>
+            <button
+              className="btn hover:bg-primary-focus"
+              onClick={() => addPoints(points, 500)}
+            >
               500
             </button>
-            <button className="btn" onClick={() => addPoints(points, 1000)}>
+            <button
+              className="btn hover:bg-primary-focus"
+              onClick={() => addPoints(points, 1000)}
+            >
               1000
             </button>
           </div>

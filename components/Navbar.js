@@ -1,6 +1,7 @@
 import Avatar from "react-nice-avatar";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 function Navbar() {
   const config = {
@@ -55,8 +56,8 @@ function Navbar() {
 
         <div className="flex-none gap-2">
           <button className="btn-ghost btn-circle btn">
-            <div className="indicator">
-              <svg
+            {/* <div className="indicator"> */}
+            {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-10 w-10"
                 fill="none"
@@ -69,9 +70,17 @@ function Navbar() {
                   strokeWidth="2"
                   d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                 />
-              </svg>
+              </svg> */}
+            {/* <span>
+                <Image
+                  src="/res/coin.gif"
+                  alt="Coins"
+                  width={30}
+                  height={30}
+                ></Image>
+              </span>
               <span className="badge-primary badge badge-xs indicator-item"></span>
-            </div>
+            </div> */}
           </button>
           <div className="dropdown-end dropdown">
             <label tabIndex="0" className="btn-ghost btn-circle avatar btn">
@@ -90,11 +99,10 @@ function Navbar() {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <Link href={"/" + router.query.id + "/settings"}>Settings</Link>
               </li>
               <li>
-                {" "}
-                <Link href="/">Logout</Link>{" "}
+                <Link href="/">Logout</Link>
               </li>
             </ul>
           </div>
