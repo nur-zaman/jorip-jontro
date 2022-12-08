@@ -18,7 +18,7 @@ export default function Login() {
         </div>
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Welcome to Jorip Jontro!</h1>
-          <p className="py-6">Login or Sign Now!</p>
+          <p className="py-6">Login or Sign Up Now!</p>
         </div>
         <div className="card w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl">
           <form action="/api/login" method="post">
