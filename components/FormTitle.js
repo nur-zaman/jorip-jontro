@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
 import fileDownload from "js-file-download";
+import Image from "next/image";
 
 async function handleDownload(formID, filename) {
   let headersList = {
@@ -33,7 +34,7 @@ export const FormTitle = (props) => {
       <div className="card-body">
         <h2 className="card-title">{props.title || "No Survey Title"}</h2>
         <p>{props.description || "No Survey Description"}</p>
-        <div className="card-actions  justify-end px-6">
+        <div className="card-actions  items-center justify-end px-6">
           <button
             className={`${"btn " + props.hidden}`}
             onClick={() => {
@@ -42,7 +43,18 @@ export const FormTitle = (props) => {
           >
             {props.download}
           </button>
-          {props.button}
+          <div className="text-3xl text-primary">
+            {props.points || 0}
+            {"  "}
+            <span>
+              <Image
+                src="/res/coin.gif"
+                alt="Coins"
+                width={20}
+                height={20}
+              ></Image>
+            </span>
+          </div>
           <button className="btn">
             <Link href={props.url}>{props.txt}</Link>
           </button>
