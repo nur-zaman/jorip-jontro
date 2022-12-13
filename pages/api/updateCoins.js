@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   if (add) {
     _coins = value + points;
   } else {
-    _coins = points - value;
+    _coins = Number(points) - Number(value);
   }
 
   const newCoins = {
