@@ -26,7 +26,7 @@ export default function DetailedPage({ data }) {
           {/* <!-- Page content here --> */}
 
           <div className="flex-grow">
-            <SurveyForm data={data.fdata} />
+            <SurveyForm data={data} />
           </div>
           <div className="btn" onClick={() => router.back()}>
             🔙GO BACK
@@ -61,6 +61,6 @@ export async function getServerSideProps(context) {
   let data = await response.json();
 
   data = data["data"];
-  console.log(data);
+  // console.log(data);
   return { props: { data } };
 }

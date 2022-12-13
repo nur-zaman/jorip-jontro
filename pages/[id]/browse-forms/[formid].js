@@ -13,7 +13,6 @@ const SurveyForm = dynamic(
 );
 
 export default function DetailedPage({ data }) {
-  const forms = [];
   const router = useRouter();
   const formID = router.query.formid;
   console.log(formID);
@@ -63,6 +62,6 @@ export async function getServerSideProps(context) {
   let data = await response.json();
 
   data = data["data"];
-  console.log(data);
+  // console.log(data);
   return { props: { data } };
 }

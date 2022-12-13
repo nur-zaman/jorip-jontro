@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export const Card = (props) => {
   return (
-    <div className="card m-7 w-min bg-gray-800 text-primary-content hover:bg-primary-focus">
+    <div className="card m-7 w-min border border-gray-800 bg-gray-800 text-primary-content shadow-inner  hover:border-primary  hover:shadow-primary">
       <div className="m=5 card-body flex w-64 self-center">
         <h2 className="card-title ">{props.title}</h2>
         <p>{props.desc}</p>

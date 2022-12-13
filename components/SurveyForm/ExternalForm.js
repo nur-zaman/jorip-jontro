@@ -2,10 +2,10 @@ import React from "react";
 
 function ExternalForm(props) {
   return (
-    <div className="flex-grow">
+    <div className=" flex flex-col">
       <iframe
         id={props.id}
-        className="w-full  "
+        className="flex flex-col "
         src={props.link + "?&embedded=true"}
         height={1000}
       >

@@ -96,7 +96,7 @@ function saveSurveyJson(url, json, saveNo, callback, userID, pt) {
     points: coins,
   };
   // console.log(json);
-  updatePoint(userID, pt, coins, false);
+  updatePoint(userID, coins, pt, false);
 
   request.send(JSON.stringify(json));
 }

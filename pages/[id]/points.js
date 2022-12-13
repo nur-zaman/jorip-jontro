@@ -5,7 +5,8 @@ import { useRouter } from "next/router";
 import Redeem from "../../components/Redeem";
 import Image from "next/image";
 
-export default function points({ data }) {
+export default function Points({ data }) {
+  const router = useRouter();
   return (
     <>
       <Navbar />
@@ -33,6 +34,12 @@ export default function points({ data }) {
             <div className="m-4 flex flex-col items-center ">
               <BuyPoints points={data.coins}></BuyPoints>
               <Redeem points={data.coins}></Redeem>
+              <button
+                className="btn"
+                onClick={() => router.push(router.asPath)}
+              >
+                Update
+              </button>
             </div>
           </div>
         </div>

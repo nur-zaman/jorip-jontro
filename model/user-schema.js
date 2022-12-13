@@ -22,9 +22,6 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
-  forms: {
-    type: [String],
-  },
 });
 
 module.exports = mongoose.models.User || mongoose.model("User", userSchema);

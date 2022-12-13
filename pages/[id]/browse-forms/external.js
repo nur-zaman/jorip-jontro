@@ -34,14 +34,14 @@ export default function Myforms({ data }) {
 
       <div className="drawer h-min">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-grow flex-wrap justify-center ">
+        <div className="drawer-content flex flex-col justify-center ">
           {/* <!-- Page content here --> */}
 
-          <div className="flex flex-grow flex-col">
-            {eforms}
-            {/* <ExternalForm link={data.formurl}></ExternalForm>
+          {/* <div className="flex flex-grow flex-col"> */}
+          {eforms}
+          {/* <ExternalForm link={data.formurl}></ExternalForm>
             <ExternalForm link={data.formurl}></ExternalForm> */}
-          </div>
+          {/* </div> */}
         </div>
         <Sidebar></Sidebar>
       </div>
