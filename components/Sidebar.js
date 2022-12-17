@@ -31,6 +31,13 @@ function Sidebar() {
             </Link>
           </li>
           <li>
+            <Link href={`${"/" + router.query.id + "/browse-forms/search"}`}>
+              <div className="hover:bg-primary-focus">
+                <i className="material-icons">Search Forms</i>
+              </div>
+            </Link>
+          </li>
+          <li>
             <Link href={`${"/" + router.query.id + "/browse-forms/external"}`}>
               <div className="hover:bg-primary-focus">
                 <i className="material-icons">External Forms</i>

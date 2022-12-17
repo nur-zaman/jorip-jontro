@@ -37,7 +37,7 @@ export default function Myforms({ data }) {
         <div className="drawer-content flex flex-wrap justify-center ">
           {/* <!-- Page content here --> */}
 
-          <div className="">{forms}</div>
+          <div className="">{forms.reverse()}</div>
         </div>
         <Sidebar></Sidebar>
       </div>
@@ -67,6 +67,6 @@ export async function getServerSideProps(ctx) {
   // Pass the data to the page via props
   let data = values["data"];
   // data = data[0]["data"];
-  console.log(data);
+
   return { props: { data } };
 }

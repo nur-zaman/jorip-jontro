@@ -10,8 +10,8 @@ A site where anyone can post surveys and get responses from verified participant
   
 ## Users will be able to view Survey results:
 - ✅ Download data.
-- Basic visualization of data.
-- Filter out data according to some parameter.
+- Basic visualization of statistics.
+- Filter Survey according to points.
 - ✅ Delete survey.
   
 ## Survey participants will be able to find survey to collect points and rewards
@@ -31,4 +31,4 @@ A site where anyone can post surveys and get responses from verified participant
 - ✅ View Profile details.
 - ✅ Change account information.
 - ✅ Set a minimum Reward amount.
-- Set up auto redeem of points.
+- ✅ Delete account.

@@ -43,7 +43,7 @@ export default function BrowseForms({ data }) {
         <div class="drawer-content flex flex-wrap justify-center scrollbar-thin scrollbar-track-slate-900 scrollbar-thumb-gray-900">
           {/* <!-- Page content here --> */}
 
-          <div className="flex-grow pr-9">{forms}</div>
+          <div className="flex-grow pr-9">{forms.reverse()}</div>
         </div>
         <Sidebar></Sidebar>
       </div>
@@ -58,6 +58,5 @@ export async function getServerSideProps() {
   // Pass the data to the page via props
   let data = values["data"];
   // data = data[0]["data"];
-  console.log(data);
   return { props: { data } };
 }
