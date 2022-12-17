@@ -25,6 +25,19 @@ export default function Register() {
                   className="input-bordered input"
                 />
               </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Age</span>
+                </label>
+                <input
+                  type="text"
+                  name="age"
+                  placeholder="age"
+                  className="input-bordered input"
+                />
+              </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
