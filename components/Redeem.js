@@ -23,7 +23,6 @@ async function updatePoint(userid, points, value, add) {
   });
 
   let data = await response.text();
-  // console.log(data);
 }
 
 export default function Reedeem(props) {

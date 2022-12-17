@@ -28,7 +28,7 @@ export default function surveyStudio({ data }) {
 
 export async function getServerSideProps(ctx) {
   const userid = ctx.params.id;
-  console.log(userid);
+
   // let data = userid;
   const headersList = {
     Accept: "*/*",

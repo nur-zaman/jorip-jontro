@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function BrowseForms({ data }) {
   const router = useRouter();
-  console.log(router);
+
   const forms = [];
 
   // for (const [i, form] of data.entries()) {

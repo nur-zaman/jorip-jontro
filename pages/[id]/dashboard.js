@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 
 export default function Dashboard() {
   const router = useRouter();
-  console.log(router);
+
   return (
     <>
       <Navbar></Navbar>
@@ -85,6 +85,6 @@ export async function getServerSideProps() {
   // Pass the data to the page via props
   let data = values["data"];
   data = data[0];
-  // console.log(values);
+
   return { props: { data } };
 }

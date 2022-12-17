@@ -43,10 +43,8 @@ async function saveFormData(response_data, formID, userID, value) {
   });
 
   let addForm = await response.text();
-  console.log(userID, points, value, true);
-  updatePoint(userID, points, value, true);
 
-  // console.log(addForm);
+  updatePoint(userID, points, value, true);
 }
 
 async function updatePoint(userid, points, value, add) {
@@ -74,15 +72,11 @@ async function updatePoint(userid, points, value, add) {
   });
 
   let data = await response.text();
-  // console.log(data);
 }
 
 function SurveyForm(props) {
   const router = useRouter();
 
-  // console.log(router);
-  // console.log("SURVEY FORM");
-  // console.log(props.data.points);
   const userID = router.query.id;
   const formID = router.query.formid;
 
@@ -95,7 +89,6 @@ function SurveyForm(props) {
   // }, []);
 
   survey.onComplete.add(function (sender) {
-    // console.log(sender.data);
     saveFormData(sender.data, formID, userID, Number(props.data.points));
   });
   // survey.getSurveyData
