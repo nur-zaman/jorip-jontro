@@ -1,5 +1,3 @@
-import React from "react";
-
 function ExternalForm(props) {
   return (
     <div className=" flex flex-col">
