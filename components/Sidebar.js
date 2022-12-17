@@ -44,6 +44,13 @@ function Sidebar() {
               </div>
             </Link>
           </li>
+          <li>
+            <Link href={`${"/" + router.query.id + "/stats"}`}>
+              <div className="hover:bg-primary-focus">
+                <i className="material-icons">View Statistics</i>
+              </div>
+            </Link>
+          </li>
           <div className="divider"></div>
           <li>
             <Link href={"/"}>

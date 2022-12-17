@@ -64,6 +64,12 @@ export default function Dashboard() {
               link={`${"/" + router.query.id + "/add-external"}`}
               linktxt="GO"
             ></Card>
+            <Card
+              title="Statistics"
+              desc="View Basic Statistics"
+              link={`${"/" + router.query.id + "/stats"}`}
+              linktxt="GO"
+            ></Card>
           </div>
         </div>
         <Sidebar></Sidebar>
@@ -79,6 +85,6 @@ export async function getServerSideProps() {
   // Pass the data to the page via props
   let data = values["data"];
   data = data[0];
-  console.log(values);
+  // console.log(values);
   return { props: { data } };
 }

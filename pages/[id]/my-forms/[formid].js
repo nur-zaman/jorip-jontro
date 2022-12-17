@@ -14,7 +14,6 @@ export default function DetailedPage({ data }) {
   const forms = [];
   const router = useRouter();
   const formID = router.query.formid;
-  console.log(formID);
 
   return (
     <>
@@ -40,7 +39,6 @@ export default function DetailedPage({ data }) {
 
 export async function getServerSideProps(context) {
   const formid = context.params.formid;
-  console.log(formid);
 
   let headersList = {
     Accept: "*/*",
@@ -61,6 +59,6 @@ export async function getServerSideProps(context) {
   let data = await response.json();
 
   data = data["data"];
-  // console.log(data);
+
   return { props: { data } };
 }

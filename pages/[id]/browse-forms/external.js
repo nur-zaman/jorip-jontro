@@ -11,7 +11,7 @@ export default function Myforms({ data }) {
   const router = useRouter();
 
   const eforms = [];
-  console.log(data);
+
   data.forEach((form) => {
     eforms.push(
       <div>
@@ -38,7 +38,7 @@ export default function Myforms({ data }) {
           {/* <!-- Page content here --> */}
 
           {/* <div className="flex flex-grow flex-col"> */}
-          {eforms}
+          {eforms.reverse()}
           {/* <ExternalForm link={data.formurl}></ExternalForm>
             <ExternalForm link={data.formurl}></ExternalForm> */}
           {/* </div> */}
