@@ -10,7 +10,6 @@ async function addExternalForm(userid, url) {
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
     "Content-Type": "application/json",
   };
-  console.log(userid, url);
 
   let bodyContent = JSON.stringify({
     user: userid,

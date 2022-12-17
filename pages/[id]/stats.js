@@ -17,7 +17,6 @@ export default function stats({ data }) {
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-wrap justify-center">
           {/* <!-- Page content here --> */}
-          {console.log(data)}
           <FormStat posted={data.posted} submitted={data.submitted}></FormStat>
           <ExternalvsCustom
             external={data.external}
@@ -81,6 +80,6 @@ export async function getServerSideProps(ctx) {
     submitted: submitted.length,
     external: external.length,
   };
-  console.log(data);
+
   return { props: { data } };
 }
