@@ -4,9 +4,8 @@ A site where anyone can post surveys and get responses from verified participant
 ## Users will be able to create new surveys:
 - ✅ Add questions.
 - ✅ Select question types.
-- ✅ Use external survey forms (Ex. Google Forms).
-- ✅ Use Custom form
-- ✅ view user's own forms
+- ✅ Add external survey forms (Ex. Google Forms).
+- ✅ Add Custom form
   
 ## Users will be able to view Survey results:
 - ✅ Download data.
